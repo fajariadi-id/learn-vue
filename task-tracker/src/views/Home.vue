@@ -1,6 +1,7 @@
 <template>
   <AddTask v-show="showAddTask" @add-task="addTask" />
 
+  <p style="text-align: center">Double click to toggle reminder</p>
   <Tasks
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask"

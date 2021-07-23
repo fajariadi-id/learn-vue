@@ -10,12 +10,12 @@ const getters = {
 
 const actions = {
   async fetchTodos({ commit }) {
-    const res = await axios.get('https://jsonplaceholder.typicode.com/todos');
+    const res = await axios.get('https://db-vuex-todos.herokuapp.com/todos');
 
     commit('setTodos', res.data);
   },
   async addTodo({ commit }, title) {
-    const res = await axios.post('https://jsonplaceholder.typicode.com/todos', {
+    const res = await axios.post('https://db-vuex-todos.herokuapp.com/todos', {
       title,
       completed: false,
     });
@@ -23,7 +23,7 @@ const actions = {
     commit('newTodo', res.data);
   },
   async deleteTodo({ commit }, id) {
-    await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+    await axios.delete(`https://db-vuex-todos.herokuapp.com/todos/${id}`);
 
     commit('removeTodo', id);
   },
@@ -31,14 +31,14 @@ const actions = {
     const limit = +e.target.value;
 
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
+      `https://db-vuex-todos.herokuapp.com/todos?_limit=${limit}`
     );
 
     commit('setTodos', res.data);
   },
   async updateTodo({ commit }, todo) {
     const res = await axios.put(
-      `https://jsonplaceholder.typicode.com/todos/${todo.id}`,
+      `https://db-vuex-todos.herokuapp.com/todos/${todo.id}`,
       todo
     );
 
@@ -49,7 +49,7 @@ const actions = {
 };
 
 const mutations = {
-  setTodos: (state, todos) => (state.todos = todos),
+  setTodos: (state, todos) => (state.todos = todos.reverse()),
   newTodo: (state, todo) => state.todos.unshift(todo),
   removeTodo: (state, id) =>
     (state.todos = state.todos.filter((todo) => todo.id !== id)),

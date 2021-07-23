@@ -13,7 +13,7 @@
         class="todo"
         v-for="todo in getTodos"
         :key="todo.id"
-        @click="onDblClick(todo)"
+        @dblclick="onDblClick(todo)"
         :class="{ 'is-complete': todo.completed }"
       >
         {{ todo.title }}
@@ -79,22 +79,26 @@ i {
   justify-content: space-around;
   margin-bottom: 1rem;
 }
+
 .complete-box {
   display: inline-block;
   width: 10px;
   height: 10px;
   background: #35495e;
 }
+
 .incomplete-box {
   display: inline-block;
   width: 10px;
   height: 10px;
   background: #41b883;
 }
+
 .is-complete {
   background: #35495e;
   color: #fff;
 }
+
 @media (max-width: 500px) {
   .todos {
     grid-template-columns: 1fr;
