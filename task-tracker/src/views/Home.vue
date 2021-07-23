@@ -39,7 +39,7 @@ export default {
 
       const data = await res.json();
 
-      this.tasks = [...this.tasks, data];
+      this.tasks = [data, ...this.tasks];
     },
     async deleteTask(id) {
       if (confirm('Kamu yakin mau menghapus?')) {
@@ -72,9 +72,9 @@ export default {
     },
     async fetchTasks() {
       const res = await fetch('/api/tasks');
-      const data = res.json();
+      const data = await res.json();
 
-      return data;
+      return data.reverse();
     },
     async fetchTask(id) {
       const res = await fetch(`/api/tasks/${id}`);
