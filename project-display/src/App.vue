@@ -100,6 +100,12 @@ p {
   min-height: 100vh;
   width: 80vw;
   margin: 0 auto;
+
+  .projects-container {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* CUSTOM */

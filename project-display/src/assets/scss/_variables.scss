@@ -8,3 +8,9 @@ $fw-bold: 700;
 $clr-white: #f6f6f4;
 $clr-black: #222222;
 $clr-black-hover: #222222cc;
+
+$shadow: 0 10px 5px
+  rgba(
+    $color: #000,
+    $alpha: 0.1,
+  );
