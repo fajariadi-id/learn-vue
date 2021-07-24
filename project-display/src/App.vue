@@ -5,7 +5,11 @@
     </h1>
 
     <div class="projects-container">
-      <Project />
+      <Project
+        v-for="project in projects"
+        :key="project.id"
+        :project="project"
+      />
     </div>
   </div>
 </template>
@@ -13,9 +17,19 @@
 <script>
 import Project from './components/Project.vue';
 
+import projectData from './assets/data/project-data.js';
+
 export default {
   components: {
     Project,
+  },
+  data() {
+    return {
+      projects: [],
+    };
+  },
+  created() {
+    this.projects = projectData;
   },
 };
 </script>

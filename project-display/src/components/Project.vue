@@ -1,14 +1,16 @@
 <template>
   <div class="project">
-    <img src="../assets/images/vuex-todo-manager.png" alt="" />
+    <!-- <img src="../assets/images/vuex-todo-manager.png" alt="" /> -->
+    <h3>{{ project.title }}</h3>
   </div>
 </template>
 
 <script>
-// import {} from '../assets/images/vuex-todo-manager.png'
-
 export default {
   name: 'Project',
+  props: {
+    project: Object,
+  },
 };
 </script>
 
