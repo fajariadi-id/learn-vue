@@ -103,5 +103,9 @@ i {
   .todos {
     grid-template-columns: 1fr;
   }
+
+  .legend {
+    flex-direction: column;
+  }
 }
 </style>
