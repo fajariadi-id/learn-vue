@@ -39,4 +39,14 @@ header {
   align-items: center;
   margin-bottom: 20px;
 }
+
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+}
 </style>

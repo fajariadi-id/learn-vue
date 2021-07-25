@@ -9,7 +9,7 @@
       :showAddTask="showAddTask"
     />
 
-    <router-view :showAddTask="showAddTask"></router-view>
+    <router-view></router-view>
 
     <Footer />
   </div>
@@ -58,6 +58,7 @@ body {
   padding: 30px;
   border-radius: 5px;
 }
+
 .btn {
   display: inline-block;
   background: #000;
@@ -80,5 +81,11 @@ body {
 .btn-block {
   display: block;
   width: 100%;
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin: 30px 10px;
+  }
 }
 </style>
