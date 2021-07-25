@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     async addTask(task) {
-      const res = await fetch('https://db-task-tracker.herokuapp.com/tasks', {
+      const res = await fetch('https://db-tasks.herokuapp.com/tasks', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -43,12 +43,9 @@ export default {
     },
     async deleteTask(id) {
       if (confirm('Kamu yakin mau menghapus?')) {
-        const res = await fetch(
-          `https://db-task-tracker.herokuapp.com/tasks/${id}`,
-          {
-            method: 'DELETE',
-          }
-        );
+        const res = await fetch(`https://db-tasks.herokuapp.com/tasks/${id}`, {
+          method: 'DELETE',
+        });
 
         res.status === 200
           ? (this.tasks = this.tasks.filter((task) => task.id !== id))
@@ -59,16 +56,13 @@ export default {
       const taskToToggle = await this.fetchTask(id);
       const updateTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-      const res = await fetch(
-        `https://db-task-tracker.herokuapp.com/tasks/${id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-type': 'application/json',
-          },
-          body: JSON.stringify(updateTask),
-        }
-      );
+      const res = await fetch(`https://db-tasks.herokuapp.com/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(updateTask),
+      });
 
       const data = await res.json();
 
@@ -77,15 +71,13 @@ export default {
       );
     },
     async fetchTasks() {
-      const res = await fetch('https://db-task-tracker.herokuapp.com/tasks');
+      const res = await fetch('https://db-tasks.herokuapp.com/tasks');
       const data = await res.json();
 
       return data.reverse();
     },
     async fetchTask(id) {
-      const res = await fetch(
-        `https://db-task-tracker.herokuapp.com/tasks/${id}`
-      );
+      const res = await fetch(`https://db-tasks.herokuapp.com/tasks/${id}`);
       const data = res.json();
 
       return data;
