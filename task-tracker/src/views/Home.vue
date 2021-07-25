@@ -1,5 +1,5 @@
 <template>
-  <AddTask v-show="showAddTask" @add-task="addTask" />
+  <AddTask v-show="showAdd" @add-task="addTask" />
 
   <p style="text-align: center">Double click to toggle reminder</p>
   <Tasks
@@ -16,7 +16,7 @@ import AddTask from '../components/AddTask.vue';
 export default {
   name: 'Home',
   props: {
-    showAddTask: Boolean,
+    showAdd: Boolean,
   },
   components: {
     Tasks,
