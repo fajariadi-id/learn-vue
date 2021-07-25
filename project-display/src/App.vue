@@ -4,6 +4,8 @@
       mini projects - vue.js
     </h1>
 
+    <small>hover to see details</small>
+
     <div class="projects-container">
       <Project
         v-for="project in projects"
@@ -12,6 +14,10 @@
       />
     </div>
   </div>
+
+  <footer>
+    <p>&copy; Vue.js Learning - Fajar Riadi</p>
+  </footer>
 </template>
 
 <script>
@@ -64,6 +70,8 @@ ul {
 
 a {
   text-decoration: none;
+  font-family: inherit;
+  color: inherit;
 }
 
 img {
@@ -96,15 +104,55 @@ p {
   margin-bottom: 1.25rem;
 }
 
+footer {
+  text-align: center;
+  margin-top: 2rem;
+
+  @media (max-width: 576px) {
+    & > p {
+      margin-bottom: 10px;
+    }
+  }
+}
+
 .container {
   min-height: 100vh;
   width: 80vw;
   margin: 0 auto;
 
+  @media (max-width: 900px) {
+    min-height: unset;
+    width: 95vw;
+  }
+
+  small {
+    display: block;
+    margin: 3rem 0 20px;
+    font-size: 14px;
+    opacity: 0.3;
+    text-align: center;
+
+    @media (max-width: 900px) {
+      margin: 2rem 0 10px;
+    }
+
+    @media (max-width: 900px) {
+      margin: 1rem 0 0;
+    }
+  }
+
   .projects-container {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-between;
+    /* margin-top: 5rem; */
+    /* display: flex;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+      grid-gap: 0.3rem;
+    }
   }
 }
 
@@ -115,5 +163,13 @@ p {
   color: #dedede;
   font-size: 68px;
   margin-top: 5rem;
+
+  @media (max-width: 900px) {
+    font-size: 48px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 28px;
+  }
 }
 </style>

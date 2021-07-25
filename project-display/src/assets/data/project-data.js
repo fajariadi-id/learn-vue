@@ -6,9 +6,10 @@ export default [
   {
     id: 1,
     img: random,
-    title: 'Get Random User Vue CDN',
+    title: 'Get Random User',
+    tags: ['vue cdn', 'html', 'css', 'js'],
     description:
-      'Implementasi Vue.js dengan menambahkan link CDN pada tag html untuk membuat aplikasi yang sederhana.',
+      'Random user generator sederhana yang dibangun menggunakan html, css, js dan Vue CDN. Random user didapat dengan memanggil API dari https://randomuser.me/api.',
     web: 'https://fajariadi-random-user.netlify.app/',
     repo:
       'https://github.com/fajariadi-id/learn-vue/tree/master/random-user-generator-cdn',
@@ -16,18 +17,20 @@ export default [
   {
     id: 2,
     img: task,
-    title: 'Task Tracker Vue CLI',
+    title: 'Task Tracker',
+    tags: ['vue cli', 'router', 'json-server'],
     description:
-      'Implementasi Vue CLI dan router untuk membangun mini aplikasi pengingat tugas dengan bantuan json-server sebagai tempat untuk menyimpan data tugas yang di-input.',
+      'Pengingat tugas sederhana yang dibangun menggunakan Vue CLI dan implementasi router untuk aplikasi Vue serta local state sebagai tempat penampung data yang akan ditampilkan pada website. Menggunakan json-server untuk menyimpan perubahan data pada local state.',
     web: 'https://fajariadi-task-tracker.netlify.app/',
     repo: 'https://github.com/fajariadi-id/learn-vue/tree/master/task-tracker',
   },
   {
     id: 3,
     img: vuex,
-    title: 'Todo Manager Vuex',
+    title: 'Todo Manager',
+    tags: ['vue cli', 'vuex', 'json-server'],
     description:
-      'Implementasi Vuex sebagai state management dari mini aplikasi to-do-list dengan bantuan json-server sebagai tempat untuk menyimpan data to-do yang di-input.',
+      'Aplikasi to-do-list sederhana yang dibangun menggunakan Vue CLI dan implementasi Vuex sebagai state management untuk menampung data disatu tempat dengan tujuan untuk kemudahan dalam mengakses data. Menggunakan json-server untuk menyimpan perubahan data pada store.',
     web: 'https://fajariadi-vuex-todos.netlify.app/',
     repo:
       'https://github.com/fajariadi-id/learn-vue/tree/master/vuex-todo-manager',
