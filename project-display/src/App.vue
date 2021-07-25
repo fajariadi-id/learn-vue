@@ -4,7 +4,7 @@
       mini projects - vue.js
     </h1>
 
-    <small>hover to see details</small>
+    <small>hover/tap to see details</small>
 
     <div class="projects-container">
       <Project
