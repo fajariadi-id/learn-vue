@@ -1,15 +1,32 @@
 <template>
   <div id="filters">
     <h3>Filters</h3>
-    <p>Rating Highest</p>
-    <p>Rating Lowes</p>
-    <p>Newest</p>
-    <p>Oldest</p>
+
+    <p v-for="filter in filters" @click="sortMovies(filter)">
+      {{ filter.name }}
+    </p>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions } from 'vuex';
+
+export default {
+  name: 'Filters',
+  data() {
+    return {
+      filters: [
+        { name: 'Rating Highest', sortBy: 'rating', order: 'desc' },
+        { name: 'Rating Lowest', sortBy: 'rating', order: 'asc' },
+        { name: 'Newest', sortBy: 'year', order: 'desc' },
+        { name: 'Oldest', sortBy: 'year', order: 'asc' },
+      ],
+    };
+  },
+  methods: {
+    ...mapActions(['sortMovies']),
+  },
+};
 </script>
 
 <style lang="scss" scoped>

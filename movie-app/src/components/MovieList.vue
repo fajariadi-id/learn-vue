@@ -1,30 +1,31 @@
 <template>
   <div id="movie-container">
-    Movie List
+    <!-- Movie List -->
 
-    <Movie v-for="movie in movies" :key="movie.id" :movie="movie" />
+    <Movie v-for="movie in getMovies" :key="movie.id" :movie="movie" />
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import Movie from '../components/Movie.vue';
 
 export default {
+  name: 'MovieList',
   components: {
     Movie,
   },
-  data() {
-    return {
-      movies: [],
-    };
+  // data() {
+  //   return {
+  //     movies: [],
+  //   };
+  // },
+  methods: {
+    // ...mapActions(['fetchMovies']),
   },
-  computed: {
-    // movies() {
-    //   return this.$store.getters.movies;
-    // },
-  },
+  computed: mapGetters(['getMovies']),
   created() {
-    this.movies = this.$store.getters.getMovies;
+    // this.fetchMovies;
   },
 };
 </script>

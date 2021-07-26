@@ -1,17 +1,35 @@
 <template>
   <div id="navbar-wrap" class="card-shadow">
     <div id="navbar">
-      <h2>Movie App</h2>
+      <h2 @click="$router.push('/')">Movie App</h2>
 
-      <div>
-        <input type="text" placeholder="Find movie..." />
+      <!-- @change="searchMovies($event)" -->
+      <div v-if="$route.path === '/'">
+        <input type="text" placeholder="Find movie..." v-model="search" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions } from 'vuex';
+
+export default {
+  name: 'Navbar',
+  data() {
+    return {
+      search: '',
+    };
+  },
+  methods: {
+    ...mapActions(['searchMovies']),
+  },
+  watch: {
+    search() {
+      this.searchMovies(this.search);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

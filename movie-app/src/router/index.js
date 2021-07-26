@@ -7,6 +7,12 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+  {
+    path: '/movie-preview/:id',
+    name: 'MoviePreview',
+    component: () => import('../views/MoviePreview.vue'),
+    props: true,
+  },
   // {
   //   path: '/about',
   //   name: 'About',

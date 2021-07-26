@@ -1,6 +1,10 @@
 <template>
   <div class="movie">
-    <img :src="movie.poster" alt="Movie Poster" />
+    <img
+      :src="movie.poster"
+      alt="Movie Poster"
+      @click="movieDetails(movie.id)"
+    />
 
     <div class="description">
       <div class="basic-info">
@@ -17,17 +21,19 @@
 </template>
 
 <script>
+import ratingMixin from '../mixins/ratingMixin';
+
 export default {
+  name: 'Movie',
   props: {
     movie: Object,
   },
   methods: {
-    getRatingColor() {
-      if (this.movie.rating > 7) return '#5eb85e';
-      if (this.movie.rating > 4) return '#ffa809';
-      return '#e10505';
+    movieDetails(id) {
+      this.$router.push({ name: 'MoviePreview', params: { id: id } });
     },
   },
+  mixins: [ratingMixin],
 };
 </script>
 
