@@ -169,7 +169,6 @@ export default {
   },
   computed: mapGetters(['getMovie']),
   async created() {
-    // this.movie = this.getMovie(+this.id);
     try {
       this.movie = await moviesAPI.getMovie(this.id);
       this.loading = false;
@@ -177,11 +176,6 @@ export default {
       console.log(error);
     }
   },
-  // watch: {
-  //   getMovie() {
-  //     if (this.movie !== {})
-  //   },
-  // },
   mixins: [ratingMixin],
 };
 </script>
@@ -212,7 +206,7 @@ export default {
       min-width: 400px;
 
       img {
-        max-width: 300px;
+        width: 300px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.473),
           0 10px 10px rgba(0, 0, 0, 0.473);
         margin-bottom: 7px;

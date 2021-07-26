@@ -46,7 +46,9 @@ export default {
   position: relative;
 
   img {
-    max-width: 100%;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.473),
       0 10px 10px rgba(0, 0, 0, 0.473);
     margin-bottom: 7px;
