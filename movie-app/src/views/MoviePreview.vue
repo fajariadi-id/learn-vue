@@ -1,6 +1,8 @@
 <template>
   <div id="movie-preview">
-    <div id="movie-container">
+    <h1 v-show="loading" class="loading">Loading...</h1>
+
+    <div v-show="loading ? false : true" id="movie-container">
       <div id="movie-poster">
         <img :src="movie.poster" alt="poster" />
       </div>
@@ -142,6 +144,7 @@ export default {
     return {
       showModal: false,
       movie: {},
+      loading: true,
     };
   },
   props: {
@@ -169,10 +172,16 @@ export default {
     // this.movie = this.getMovie(+this.id);
     try {
       this.movie = await moviesAPI.getMovie(this.id);
+      this.loading = false;
     } catch (error) {
       console.log(error);
     }
   },
+  // watch: {
+  //   getMovie() {
+  //     if (this.movie !== {})
+  //   },
+  // },
   mixins: [ratingMixin],
 };
 </script>
@@ -181,6 +190,15 @@ export default {
 #movie-preview {
   display: flex;
   overflow: auto;
+
+  .loading {
+    color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    z-index: 1;
+  }
 
   #movie-container {
     display: flex;
