@@ -34,7 +34,7 @@
 
         <div id="options">
           <button class="edit" @click="showModal = true">Edit</button>
-          <button class="delete" @click="removeMovie(+movie.id)">Delete</button>
+          <button class="delete" @click="removeMovie(movie.id)">Delete</button>
         </div>
       </div>
 
@@ -131,6 +131,7 @@
 import { mapActions, mapGetters } from 'vuex';
 import Modal from '../components/Modal.vue';
 import ratingMixin from '../mixins/ratingMixin';
+import moviesAPI from '../services/moviesAPI';
 
 export default {
   name: 'MoviePreview',
@@ -164,8 +165,13 @@ export default {
     },
   },
   computed: mapGetters(['getMovie']),
-  created() {
-    this.movie = this.getMovie(+this.id);
+  async created() {
+    // this.movie = this.getMovie(+this.id);
+    try {
+      this.movie = await moviesAPI.getMovie(this.id);
+    } catch (error) {
+      console.log(error);
+    }
   },
   mixins: [ratingMixin],
 };

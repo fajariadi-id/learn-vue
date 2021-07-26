@@ -21,11 +21,11 @@ export default {
   //   };
   // },
   methods: {
-    // ...mapActions(['fetchMovies']),
+    ...mapActions(['fetchMovies']),
   },
   computed: mapGetters(['getMovies']),
   created() {
-    // this.fetchMovies;
+    this.fetchMovies();
   },
 };
 </script>

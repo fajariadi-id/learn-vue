@@ -1,4 +1,5 @@
-import movieList from '../../assets/movie-list';
+// import movieList from '../../assets/movie-list';
+import moviesAPI from '../../services/moviesAPI';
 
 // custom function ---
 const compare = ({ sortBy, order }) => {
@@ -12,7 +13,7 @@ const compare = ({ sortBy, order }) => {
 // custom function end ---
 
 const state = {
-  movies: [...movieList],
+  movies: [],
   search: '',
   filter: { sortBy: 'year', order: 'desc' },
 };
@@ -32,10 +33,15 @@ const getters = {
 };
 
 const actions = {
-  // fetchMovies({ commit }) {
-  //   console.log(movieList);
-  //   commit('setMovies', movieList);
-  // },
+  async fetchMovies({ commit }) {
+    try {
+      const res = await moviesAPI.getMovies();
+      commit('setMovies', res);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   searchMovies({ commit }, search) {
     commit('setSearch', search);
   },
@@ -45,22 +51,39 @@ const actions = {
     // console.log(this.filter);
   },
 
-  addMovie({ commit, state }, movie) {
-    movie.id = state.movies.length++;
-    commit('setMovies', movie);
+  async addMovie({ commit }, movie) {
+    try {
+      const res = await moviesAPI.addMovie(movie);
+      commit('addMovie', res);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // movie.id = state.movies.length++;
   },
 
-  deleteMovie({ commit }, id) {
-    commit('removeMovie', id);
+  async deleteMovie({ commit }, id) {
+    try {
+      const res = await moviesAPI.deleteMovie(id);
+      commit('removeMovie', res);
+    } catch (error) {
+      console.log(error);
+    }
   },
 
-  updateMovie({ commit }, movie) {
-    commit('onUpdate', movie);
+  async updateMovie({ commit }, movie) {
+    try {
+      const res = await moviesAPI.updateMovie(movie);
+      commit('onUpdate', res);
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 
 const mutations = {
-  setMovies: (state, movie) => state.movies.push(movie),
+  setMovies: (state, movies) => (state.movies = movies),
+  addMovie: (state, movie) => state.movies.push(movie),
   setSearch: (state, search) => (state.search = search),
   setFilter: (state, filter) => (state.filter = filter),
   removeMovie: (state, id) =>
