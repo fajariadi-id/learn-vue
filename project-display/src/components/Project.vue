@@ -3,7 +3,7 @@
     <img :src="project.img" alt="" />
 
     <div class="info">
-      <h3>{{ project.title }}</h3>
+      <h3 :class="project.id === 4 && 'title'">{{ project.title }}</h3>
 
       <div class="tags">
         <span v-for="tag in project.tags" class="tag">{{ tag }}</span>
@@ -81,6 +81,10 @@ export default {
       h3 {
         color: $clr-white;
       }
+    }
+
+    .title {
+      color: $clr-white;
     }
 
     .link-container {
