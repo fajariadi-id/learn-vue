@@ -23,7 +23,7 @@
           :href="project.credential"
           target="_blank"
           class="credential"
-          ><i class="fas fa-external-link-alt"></i>See Credential</a
+          ><i class="fas fa-external-link-alt"></i>Credential</a
         >
       </div>
     </div>
@@ -116,6 +116,7 @@ export default {
         padding: 5px 10px;
         border-radius: 5px;
         transition: all 0.3s ease;
+        text-align: center;
 
         i {
           margin-right: 7px;
