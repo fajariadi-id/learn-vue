@@ -3,7 +3,7 @@
     <img :src="project.img" alt="" />
 
     <div class="info">
-      <h3 :class="project.id === 4 && 'title'">{{ project.title }}</h3>
+      <h3 class="title">{{ project.title }}</h3>
 
       <div class="tags">
         <span v-for="tag in project.tags" class="tag">{{ tag }}</span>
@@ -17,6 +17,13 @@
         >
         <a :href="project.repo" target="_blank" class="repo"
           ><i class="fab fa-github"></i>Repository</a
+        >
+        <a
+          v-show="project.credential"
+          :href="project.credential"
+          target="_blank"
+          class="credential"
+          ><i class="fas fa-external-link-alt"></i>See Credential</a
         >
       </div>
     </div>
@@ -47,9 +54,19 @@ export default {
   overflow: hidden;
   position: relative;
 
+  img {
+    transition: all 0.5s ease;
+  }
+
   &:hover {
+    & > img {
+      filter: blur(2px);
+      transition-delay: 0.3s;
+    }
     & > .info {
       transform: translateY(0);
+      opacity: 1;
+
       transition-delay: 0.3s;
     }
   }
@@ -63,13 +80,15 @@ export default {
     left: 0;
     bottom: 0;
     transform: translateY(100%);
+    opacity: 0;
     transition: all 0.5s ease;
-
-    background: linear-gradient(
+    /* backdrop-filter: blur(3px); */
+    background-color: #22222280;
+    /* background: linear-gradient(
       to top,
       #222222cc,
       rgba($color: #222, $alpha: 0)
-    );
+    ); */
 
     @media (max-width: 576px) {
       background-color: #22222280;
@@ -99,7 +118,7 @@ export default {
         transition: all 0.3s ease;
 
         i {
-          margin-right: 5px;
+          margin-right: 7px;
         }
 
         &.web {
@@ -116,6 +135,15 @@ export default {
 
           &:hover {
             background-color: $clr-black-hover;
+          }
+        }
+
+        &.credential {
+          background-color: $clr-green;
+          color: $clr-white;
+
+          &:hover {
+            background-color: $clr-green-hover;
           }
         }
       }

@@ -14,6 +14,7 @@ export default [
     web: 'https://fajariadi-random-user.netlify.app/',
     repo:
       'https://github.com/fajariadi-id/learn-vue/tree/master/random-user-generator-cdn',
+    credential: '',
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ export default [
       'Pengingat tugas sederhana yang dibangun menggunakan Vue CLI dan implementasi Vue router untuk aplikasi Vue serta local state sebagai tempat penampung data yang akan ditampilkan pada website. Menggunakan json-server untuk menyimpan perubahan data pada local state.',
     web: 'https://fajariadi-task-tracker.netlify.app/',
     repo: 'https://github.com/fajariadi-id/learn-vue/tree/master/task-tracker',
+    credential: '',
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ export default [
     web: 'https://fajariadi-vuex-todos.netlify.app/',
     repo:
       'https://github.com/fajariadi-id/learn-vue/tree/master/vuex-todo-manager',
+    credential: '',
   },
   {
     id: 4,
@@ -45,5 +48,6 @@ export default [
       'Website movie app sederhana yang dibangun menggunakan Vue CLI, implementasi Vuex sebagai state, Vue router dan integrasi firebase sebagai cloud database untuk menyimpan data dari film-film yang ditampilkan. Dilengkapi dengan filter search, sorting film dan CRUD untuk manipulasi data film yang ingin ditampilkan.',
     web: 'https://fajariadi-vue-movie-app.netlify.app/',
     repo: 'https://github.com/fajariadi-id/learn-vue/tree/master/movie-app',
+    credential: 'https://ude.my/UC-34f42929-01f4-4ace-a952-372baa1d5a79',
   },
 ];
