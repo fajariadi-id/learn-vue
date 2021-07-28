@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <!-- <Navbar /> -->
-
     <div id="main-section">
       <Sidebar />
       <MovieList />
@@ -33,6 +31,12 @@ export default {
   #main-section {
     display: flex;
     margin-top: 50px;
+  }
+
+  @media (max-width: 900px) {
+    & > #main-section {
+      flex-direction: column;
+    }
   }
 }
 </style>

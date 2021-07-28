@@ -51,18 +51,22 @@ export default {
     }
 
     & > div {
-      display: flex;
-      flex-grow: 2;
-      justify-content: flex-end;
-
       input {
-        width: 20%;
+        width: 100%;
         border: none;
         height: 25px;
         border-radius: 10px;
         box-sizing: border-box;
         outline: none;
         padding: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    & > #navbar {
+      & > h2 {
+        font-size: 18px;
       }
     }
   }

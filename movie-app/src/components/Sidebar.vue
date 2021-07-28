@@ -149,6 +149,18 @@ export default {
   background-color: #191c1f;
   justify-content: left;
 
+  @media (max-width: 900px) {
+    & {
+      min-height: 80px;
+      max-width: 100%;
+      position: fixed;
+      top: 50px;
+      right: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
   & > button {
     margin-top: 20px;
     height: 30px;
@@ -159,6 +171,12 @@ export default {
     border-radius: 10px;
     outline: none;
     cursor: pointer;
+    position: sticky;
+    top: 300px;
+
+    @media (max-width: 900px) {
+      position: unset;
+    }
   }
 
   #movie-form {

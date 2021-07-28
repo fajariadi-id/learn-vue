@@ -2,9 +2,11 @@
   <div id="filters">
     <h3>Filters</h3>
 
-    <p v-for="filter in filters" @click="sortMovies(filter)">
-      {{ filter.name }}
-    </p>
+    <div>
+      <p v-for="filter in filters" @click="sortMovies(filter)">
+        {{ filter.name }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -34,9 +36,29 @@ export default {
   text-align: left;
   color: rgb(143, 143, 143);
   cursor: pointer;
+  position: sticky;
+  top: 60px;
 
   p {
     margin-left: 10px;
+  }
+
+  @media (max-width: 900px) {
+    text-align: center;
+    position: unset;
+
+    & > h3 {
+      margin: 5px 0 10px;
+    }
+
+    & > div {
+      display: flex;
+      justify-content: center;
+
+      & > p {
+        margin: 5px;
+      }
+    }
   }
 }
 </style>

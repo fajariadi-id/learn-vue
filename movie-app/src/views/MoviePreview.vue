@@ -274,6 +274,15 @@ export default {
         }
       }
     }
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      margin-bottom: 90px;
+
+      & > #movie-poster {
+        min-width: 300px;
+      }
+    }
   }
 
   #movie-form {

@@ -49,6 +49,10 @@ export default {
   flex-grow: 2;
   justify-content: center;
 
+  @media (max-width: 900px) {
+    padding-top: 9rem;
+  }
+
   .loading {
     color: white;
     position: absolute;
