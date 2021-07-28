@@ -2,6 +2,9 @@
   <AddTask v-show="showAdd" @add-task="addTask" />
 
   <p style="text-align: center">Double click to toggle reminder</p>
+
+  <h1 v-show="loading">Loading...</h1>
+
   <Tasks
     @toggle-reminder="toggleReminder"
     @delete-task="deleteTask"
@@ -25,6 +28,7 @@ export default {
   data() {
     return {
       tasks: [],
+      loading: true,
     };
   },
   methods: {
@@ -74,6 +78,8 @@ export default {
       const res = await fetch('https://db-tasks.herokuapp.com/tasks');
       const data = await res.json();
 
+      this.loading = false;
+
       return data.reverse();
     },
     async fetchTask(id) {
@@ -88,3 +94,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+</style>

@@ -8,6 +8,8 @@
       <span> <span class="complete-box"></span> = Complete </span>
     </div>
 
+    <h1 v-show="loading">Loading...</h1>
+
     <div class="todos">
       <div
         class="todo"
@@ -28,6 +30,11 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Todos',
+  data() {
+    return {
+      loading: true,
+    };
+  },
   methods: {
     ...mapActions(['fetchTodos', 'deleteTodo', 'updateTodo']),
     onDblClick(todo) {
@@ -46,10 +53,20 @@ export default {
   created() {
     this.fetchTodos();
   },
+  watch: {
+    getTodos() {
+      if (this.getTodos.length !== 0) this.loading = false;
+    },
+  },
 };
 </script>
 
 <style scoped>
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
 .todos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
