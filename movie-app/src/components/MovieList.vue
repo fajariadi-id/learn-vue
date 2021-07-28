@@ -60,6 +60,10 @@ export default {
     right: 0;
     top: 100px;
     z-index: 1;
+
+    @media (max-width: 900px) {
+      top: 200px;
+    }
   }
 }
 </style>
